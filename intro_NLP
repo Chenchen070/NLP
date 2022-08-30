@@ -1,0 +1,57 @@
+NLP - Natural Language Processing
+Anticipate a group project
+
+"Natural Language" = human language
+- syntax can be very fluid
+- lots of meaning through context
+
+"Formal Language"
+- a formal language is a grammer/syntax
+- it's a language that's very rigid
+- formal language is so rigid, that it's predicable.
+- Examples:
+    - math notation
+    - chemistry notation
+    - musical notation
+    - logical notation
+    - programming languages
+        - Python
+        - SQL
+        - C, C#, C++, Objective C
+        - ANY programming language
+
+
+- NLP is bringing our programming and algorithmic chops to bear on understanding natural language
+- NLP is an entire branch of CS/DS, it's not one or two algorithms
+
+Examples of NLP project/tool/thing:
+- Siri, google assitant
+- voice to text (machine listening)
+- language translation tools (from Spanish to French..)
+- text to voice 
+- automated helpdesk - Interactive Voice Response
+- autocorrect and text prediction
+- virtual chatbots (text responses/generation)
+- web scraping bots 
+- search engines
+- regular language to regular expression tool
+- hashtag, topic search #running but you search for #run and you see the thread b/c they share a root
+- email filters - searching
+- spam detection
+- accessibility tools for hearing/sight impairment
+- sentiment analysis (what's the tone of a document, is this a document of facts or opinions or positive/negative)
+- topic modeling (unsupervised algorithm, trying to figure out what a document is all about)
+- parts of speech tagging
+- text normalization (removing as much variance from text without losing too much meaning - lowercasing everything)
+
+## Topics we'll cover
+- Regular expressions (kinda like a word/letter algebra for searching/replacing/filtering)
+- Web scraping
+- We'll do some exploration (this could be its own 6 month course)
+- classification modeling 
+- NLP project is classifying the programming language of a repo off of GitHub based only on that repo's README file.
+
+## End Goal for y'all w/ this module
+1. Enough regex to be dangerous (regex is a tool for your toolbox)
+2. Enough web scraping and html parsing to be useful (to build your own datasets)
+3. Modeling goal is to build your own dataset and perform classification on that labeled dataset
