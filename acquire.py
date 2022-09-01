@@ -3,23 +3,33 @@ from bs4 import BeautifulSoup
 import os
 import re
 import pandas as pd
+import json
 
 def get_blog_articles():
-    websites = []
-    urls = ['https://codeup.com/tips-for-prospective-students/mental-health-first-aid-training/',
-            'https://codeup.com/featured/5-reasons-to-attend-our-new-cloud-administration-program/',
-            'https://codeup.com/data-science/jobs-after-a-coding-bootcamp-part-1-data-science/',
-            'https://codeup.com/featured/what-jobs-can-you-get-after-a-coding-bootcamp-part-2-cloud-administration/',
-            'https://codeup.com/codeup-news/codeup-tv-commercial/']
-    for x in urls:
-        headers = {'User-Agent': 'Codeup Data Science'}
-        response = get(x, headers=headers)
-        soup = BeautifulSoup(response.content, 'html.parser')
-        title = soup.title.text
-        text = soup.find('div', id='main-content').text
-        date = soup.select('span.published')[0].text
-        websites.append({"title": title, "content": text, "date_published": date})
+    filename = "blog_posts.csv"
+    if os.path.isfile(filename):        
+        websites = pd.read_csv(filename,index_col=[0])
+        return websites
+    else:
+        
+        websites = []
+        urls = ['https://codeup.com/tips-for-prospective-students/mental-health-first-aid-training/',
+                'https://codeup.com/featured/5-reasons-to-attend-our-new-cloud-administration-program/',
+                'https://codeup.com/data-science/jobs-after-a-coding-bootcamp-part-1-data-science/',
+                'https://codeup.com/featured/what-jobs-can-you-get-after-a-coding-bootcamp-part-2-cloud-administration/',
+                'https://codeup.com/codeup-news/codeup-tv-commercial/']
+        for x in urls:
+            headers = {'User-Agent': 'Codeup Data Science'}
+            response = get(x, headers=headers)
+            soup = BeautifulSoup(response.content, 'html.parser')
+            title = soup.title.text
+            text = soup.find('div', id='main-content').text
+            date = soup.select('span.published')[0].text
+            websites.append({"title": title, "content": text, "date_published": date})
+            websites = pd.DataFrame(websites)
+            websites.to_csv("blog_posts.csv")
     return websites
+
 
 def get_one_news():
     news = []
